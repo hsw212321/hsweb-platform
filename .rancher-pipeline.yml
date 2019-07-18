@@ -4,5 +4,11 @@ stages:
   - runScriptConfig:
       image: java:8
       shellScript: mvn package
+- name: 推送镜像
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: test
 timeout: 60
 notification: {}
